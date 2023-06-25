@@ -43,9 +43,7 @@
     if(!navigator.geolocation) {
         console.log("Your browser doesn't support geolocation feature!")
     } else {
-        setInterval(() => {
             navigator.geolocation.watchPosition(getPosition)
-        }, 2000);
     }
 
     var marker, circle;
