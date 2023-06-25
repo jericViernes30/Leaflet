@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +31,7 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
     // Map initialization 
-    var map = L.map('map').setView([1.0860746, 124.608406], 6);
+    var map = L.map('map').setView([14.0860746, 100.608406], 6);
 
     //osm layer
     var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -43,13 +42,15 @@
     if(!navigator.geolocation) {
         console.log("Your browser doesn't support geolocation feature!")
     } else {
-            navigator.geolocation.watchPosition(getPosition)
+        setInterval(() => {
+            navigator.geolocation.getCurrentPosition(getPosition)
+        }, 5000);
     }
 
     var marker, circle;
 
     function getPosition(position){
-        console.log(position)
+        // console.log(position)
         var lat = position.coords.latitude
         var long = position.coords.longitude
         var accuracy = position.coords.accuracy
