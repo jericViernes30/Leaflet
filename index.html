@@ -32,7 +32,7 @@
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
     // Map initialization 
-    var map = L.map('map').setView([14.0860746, 121.608406], 6);
+    var map = L.map('map').setView([1.0860746, 124.608406], 6);
 
     //osm layer
     var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,10 +44,10 @@
         console.log("Your browser doesn't support geolocation feature!")
     } else {
         setInterval(() => {
-            navigator.geolocation.getCurrentPosition(getPosition)
-        }, 3000);
+            navigator.geolocation.watchPosition(getPosition)
+        }, 2000);
     }
-Z
+
     var marker, circle;
 
     function getPosition(position){
